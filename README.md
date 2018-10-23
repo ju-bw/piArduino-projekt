@@ -4,6 +4,15 @@
 ## github
 
 ~~~
+  # win10
+  C:\projekte\raspi\projekt
+
+  # raspi
+  /home/pi/raspi/projekt
+~~~
+
+~~~
+  # Projekt Start
   echo "# " >> README.md
   git init
   git add README.md
@@ -25,11 +34,17 @@
 
 
 ~~~
-  #
+  # Projekt bearbeiten
   git status
   git add .
   git commit -am"kommentar"
   git pull
   git push
   git log --oneline
+~~~
+
+**Download** 
+
+~~~
+  git clone https://github.com/ju-bw/raspi-projekt.git .
 ~~~
