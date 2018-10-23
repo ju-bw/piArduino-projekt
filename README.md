@@ -1,5 +1,6 @@
 # raspi-projekt
 
+% pi
 
 ## github
 
