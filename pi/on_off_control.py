@@ -9,9 +9,11 @@ GPIO.setup(control_pin, GPIO.OUT)
 
 try:         		  
   while True:       
-    GPIO.output(control_pin, False)  
+    GPIO.output(control_pin, False)
+    print("led an")  
     time.sleep(5)
     GPIO.output(control_pin, True)
+    print("led aus")
     time.sleep(2)
 
 finally:
