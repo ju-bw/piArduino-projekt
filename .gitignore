@@ -2,7 +2,7 @@
 # ordner/
 # !file.md = Ausnahme, wird versioniert
 
-!.gitignore
+
 
 *.exe
 *.x
