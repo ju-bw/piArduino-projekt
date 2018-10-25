@@ -3,18 +3,18 @@ import time
 
 GPIO.setmode(GPIO.BCM)   
 
-control_pin = 18           
-GPIO.setup(control_pin, GPIO.OUT)
+ledPin = 18           
+GPIO.setup(ledPin, GPIO.OUT)
 
 
 try:         		  
   while True:       
-    GPIO.output(control_pin, False)
+    GPIO.output(ledPin, False)
     print("led an")  
-    time.sleep(5)
-    GPIO.output(control_pin, True)
+    time.sleep(5) # sekunden
+    GPIO.output(ledPin, True)
     print("led aus")
-    time.sleep(2)
+    time.sleep(2) # sekunden
 
 finally:
   print("Cleaning up")
