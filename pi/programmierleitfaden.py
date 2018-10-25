@@ -24,7 +24,7 @@ a = 123.45
 b = "message"
 print(a, b)
 
-# If, while
+# if, while
 zahl = 10
 if zahl > 10:
   print(zahl, " is big!")
