@@ -1,20 +1,20 @@
-import RPi.GPIO as GPIO  # (1)
-import time              # (2)
+import time 
+import RPi.GPIO as GPIO         
+GPIO.setmode(GPIO.BCM)  
 
-GPIO.setmode(GPIO.BCM)   # (3)
+ledPin = 18  
+sek = 2        
+GPIO.setup(ledPin, GPIO.OUT)
 
-control_pin = 18           # (4)
-GPIO.setup(control_pin, GPIO.OUT)
 
-
-try:         		  # (5)
-    while True:       # (6)
-        GPIO.output(control_pin, False) # (7)
-        print("led aus - warte 5s")
-        time.sleep(5) 
-        GPIO.output(control_pin, True)
-        print("led ein- warte 2s")
-        time.sleep(2)                 
+try:         		 
+    while True:       
+        GPIO.output(ledPin, False) 
+        print("led aus")
+        time.sleep(sek) 
+        GPIO.output(ledPin, True)
+        print("led ein")
+        time.sleep(sek)                 
         
 finally:  
     print("Cleaning up")

@@ -3,7 +3,7 @@ Programmierleitfaden Arduino C
 
 GitHub-Repository zum Download  (git clone https://github.com/simonmonk/make_action.git .)
 
-Arduino Uno Modell R3 (Revision 3), ATMega328, 32 KB Flash-Speicher = Programmspeicher
+Arduino Uno Modell R3 (Revision 3), ATMega328, 32KB Flash-Speicher = Programmspeicher
 
 - setup und loop
 - variablen
@@ -36,15 +36,15 @@ Editor: visual studio code
 * F1 = Open Serial Monitor  // Serieller Monitor
 */
 
-int millisekunden = 500; // 1000 ms = 1s
+int ms = 500; // 1000 ms = 1s
 const int ledPin = 13;   // digitaler Ausgang: Spannung 0V oder 5V
 const int tasterPin = 7; // digitaler Eingang: Spannung 0V oder 5V
 const int switchPin = 8; // digitaler Eingang: Spannung 0V oder 5V
 
 // Analoge Eingänge
 //Analogwert lesen und umrechnen: (zahlenwert * 5) / 1023 oder zahlenwert / 204,6
-//int raw = analogRead(A0);  // analoger Eingang: Spannungen zwischen 0 V und 5 V
-//float volts = raw / 204.6; // liefert Zahlenwert zwischen 0 (0 V) und 1023 (5 V)
+//int raw = analogRead(A0);  // analoger Eingang: Spannungen zwischen 0V und 5V
+//float volts = raw / 204.6; // liefert Zahlenwert zwischen 0 (0V) und 1023 (5V)
 //float volts = (raw * 5) / 1023;
 
 //Analoge Ausgänge
@@ -114,9 +114,9 @@ void loop()
 
   //Schaltet die ledPin
   digitalWrite(ledPin, HIGH); // Schaltet die ledPin ein (Spannung 5V = HIGH)
-  delay(millisekunden);       // Wartet
+  delay(ms);       // Wartet
   digitalWrite(ledPin, LOW);  // Schaltet die ledPin aus (Spannung 0V = LOW, Masse, GND)
-  delay(millisekunden);       // Wartet
+  delay(ms);       // Wartet
 }
 
 // Funktion

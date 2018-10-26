@@ -1,6 +1,5 @@
-import RPi.GPIO as GPIO  
-import time              
-
+import time 
+import RPi.GPIO as GPIO         
 GPIO.setmode(GPIO.BCM)   
 
 ledPin = 18           
