@@ -1,4 +1,4 @@
-# raspi-projekt
+# piArduino-projekt
 
 % pi
 
@@ -18,18 +18,21 @@
   git init
   git add README.md
   git commit -m "projekt start"
+  git log --oneline
+  git log --graph --oneline --decorate --pretty=format:"%ad; %h; %s" --no-merges --date=short > log.txt
+  git log --oneline --decorate --pretty=format:"%ad;%h;%s" --no-merges --date=short > log.csv 
 ~~~
 
 ~~~
   # SSH
-  git remote add origin git@github.com:ju-bw/raspi-projekt.git
+  git remote add origin git@github.com:ju-bw/piArduino-projekt.git
   git push -u origin master
 
 ~~~
 
 ~~~
   # HTTPS
-  git remote add origin https://github.com/ju-bw/raspi-projekt.git
+  git remote add origin https://github.com/ju-bw/piArduino-projekt.git
   git push -u origin master
 ~~~
 
@@ -47,5 +50,5 @@
 **Download** 
 
 ~~~
-  git clone https://github.com/ju-bw/raspi-projekt.git .
+  git clone https://github.com/ju-bw/piArduino-projekt.git .
 ~~~

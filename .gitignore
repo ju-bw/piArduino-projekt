@@ -3,7 +3,7 @@
 # !file.md = Ausnahme, wird versioniert
 
 
-
+log.txt
 *.exe
 *.x
 *.zip
