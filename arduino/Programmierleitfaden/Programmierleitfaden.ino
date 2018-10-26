@@ -124,9 +124,9 @@ void blink(int pin, int n)
 {
   for (int i = 0; i < n; i++)
   {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(pin, HIGH);
     delay(500);
-    digitalWrite(ledPin, LOW);
+    digitalWrite(pin, LOW);
     delay(500);
   }
 }

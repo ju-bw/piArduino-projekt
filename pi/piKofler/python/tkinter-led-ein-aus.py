@@ -3,16 +3,16 @@ from tkinter import *
 import RPi.GPIO as gpio
 gpio.setmode(gpio.BOARD)
 gpio.setwarnings(False)  
-gpio.setup(13, gpio.OUT)   # Pin 13 
-gpio.output(13, gpio.LOW)
+gpio.setup(19, gpio.OUT)   # Pin 19 
+gpio.output(19, gpio.LOW)
 
 # Reaktion auf Mausklick im Fenster
 def led_change():
   if ledstatus.get():
-    gpio.output(13, gpio.HIGH)  
+    gpio.output(19, gpio.HIGH)  
     lbl.configure(text='Die LED leuchtet.')
   else:
-    gpio.output(13, gpio.LOW)  
+    gpio.output(19, gpio.LOW)  
     lbl.configure(text='Die LED ausgeschalten.')
 
 # Benutzeroberfläche mit Ereignisverwaltung
