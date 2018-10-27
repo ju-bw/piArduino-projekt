@@ -30,6 +30,7 @@ lbl.grid(column=0, row=0, padx=5, pady=5)
 ledbtn.grid(column=0, row=1, padx=5, pady=5)
 
 mywin.mainloop()
+gpio.cleanup()
 
 #try:         		  
   #while True:       
