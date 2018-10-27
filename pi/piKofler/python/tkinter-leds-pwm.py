@@ -50,6 +50,8 @@ lbl.grid(column=0, row=0, padx=5, pady=5)
 lb2.grid(column=1, row=0, padx=5, pady=5)
 lb3.grid(column=2, row=0, padx=5, pady=5)
 ledscale.grid(column=0, row=1, padx=5, pady=5)
+ledscale.grid(column=1, row=1, padx=5, pady=5)
+ledscale.grid(column=2, row=1, padx=5, pady=5)
 
 # Ereignisse
 mywin.protocol("WM_DELETE_WINDOW", win_close) # ordentliches Programmende, wenn Fenster geschlossen wird
