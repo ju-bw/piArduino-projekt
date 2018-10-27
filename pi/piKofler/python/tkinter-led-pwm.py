@@ -3,9 +3,11 @@ from tkinter import *
 import RPi.GPIO as gpio, signal
 gpio.setmode(gpio.BOARD)
 gpio.setwarnings(False)  
-gpio.setup(26, gpio.OUT) 
-pwm = gpio.PWM(26, 1000)    # Frequenz: 1000 Hertz
-pwm.start(50)               # Duty: anfangs 50%
+
+ledPin = 37
+gpio.setup(ledPin, gpio.OUT) 
+pwm = gpio.PWM(ledPin, 1000)    # Frequenz: 1000 Hertz
+pwm.start(50)                   # Duty:     anfangs 50%
 
 # Reaktion auf Mausklick im Fenster
 def pwm_change(value):
