@@ -3,6 +3,7 @@ from tkinter import *
 import RPi.GPIO as gpio
 #gpio.setmode(gpio.BOARD)
 gpio.setmode(gpio.BCM)
+gpio.setwarnings(False)
 
 ledPin = 19
 gpio.setup(ledPin, gpio.OUT)  
@@ -34,6 +35,6 @@ try:
 
 finally:
   print("Cleaning up")
-  GPIO.cleanup()
+  gpio.cleanup()
 
 
