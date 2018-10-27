@@ -29,12 +29,14 @@ ledbtn = Checkbutton(mywin, text='LED ein-/ausschalten',
 lbl.grid(column=0, row=0, padx=5, pady=5)
 ledbtn.grid(column=0, row=1, padx=5, pady=5)
 
-try:         		  
-  while True:       
-    mywin.mainloop()
+mywin.mainloop()
 
-finally:
-  print("Cleaning up")
-  gpio.cleanup()
+#try:         		  
+  #while True:       
+    #mywin.mainloop()
+
+#finally:
+  #print("Cleaning up")
+  #gpio.cleanup()
 
 
