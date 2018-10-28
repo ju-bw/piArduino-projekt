@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 from tkinter import *
-import RPi.GPIO as gpio
-gpio.setmode(gpio.BOARD)
-#gpio.setmode(gpio.BCM)
-gpio.setwarnings(False)
+import RPi.GPIO as gpio, signal
+gpio.setmode(gpio.BOARD)#Pins 1-40
+gpio.setwarnings(False)  
 
-ledPin1 = 19
-ledPin2 = 19
-ledPin3 = 19
+ledPin1 = 37
+ledPin2 = 35
+ledPin3 = 33
 
 gpio.setup(ledPin1, gpio.OUT)  
 gpio.output(ledPin1, gpio.LOW)
