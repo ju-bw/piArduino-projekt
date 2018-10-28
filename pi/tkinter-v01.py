@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
-
+    
 class Anwendung(Frame):#Klasse = Bauplan für Objekte
 
   def __init__(self,master=None):# Methode
