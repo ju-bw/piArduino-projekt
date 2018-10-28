@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
-import RPi.GPIO as gpio, signal
+import RPi.GPIO as gpio
 gpio.setmode(gpio.BOARD)#Pins 1-40
 gpio.setwarnings(False)  
 

@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 from tkinter import *
 
-class Anwendung(Frame):
+ 
+class Anwendung(Frame):#Klasse = Bauplan für Objekte
+
 
   def __init__(self,master=None):
     Frame.__init__(self, master)
