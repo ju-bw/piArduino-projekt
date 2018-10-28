@@ -39,17 +39,26 @@ def do_nothing():
   mywin.after(200, do_nothing)
 
 # Benutzeroberfläche
-mywin = Tk()
-mywin.wm_title('LED-Helligkeit')
+mywin = Tk()                    # Fenster
+mywin.wm_title('LED-Helligkeit')# Titel
 lbl = Label(mywin, text='LED1 mit PWM steuern')
 lb2 = Label(mywin, text='LED2 mit PWM steuern')
 lb3 = Label(mywin, text='LED3 mit PWM steuern')
+
 ledscale = Scale(mywin, from_=0, to=100, orient=HORIZONTAL, command=pwm_change)
 ledscale.set(50)
+ledscale = Scale(mywin, from_=100, to=200, orient=HORIZONTAL, command=pwm_change)
+ledscale.set(50)
+ledscale = Scale(mywin, from_=200, to=300, orient=HORIZONTAL, command=pwm_change)
+ledscale.set(50)
+
 lbl.grid(column=0, row=0, padx=5, pady=5)
 lb2.grid(column=1, row=0, padx=5, pady=5)
 lb3.grid(column=2, row=0, padx=5, pady=5)
+
 ledscale.grid(column=0, row=1, padx=5, pady=5)
+ledscale.grid(column=1, row=1, padx=5, pady=5)
+ledscale.grid(column=2, row=1, padx=5, pady=5)
 
 # Ereignisse
 mywin.protocol("WM_DELETE_WINDOW", win_close) # ordentliches Programmende, wenn Fenster geschlossen wird

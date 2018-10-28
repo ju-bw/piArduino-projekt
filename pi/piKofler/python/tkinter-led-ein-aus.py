@@ -23,9 +23,7 @@ mywin = Tk()
 mywin.wm_title('LED ein/aus')
 ledstatus = IntVar()
 lbl = Label(mywin, text='Die LED ist ausgeschalten.')
-ledbtn = Checkbutton(mywin, text='LED ein-/ausschalten', 
-                     indicatoron=0, variable=ledstatus,
-                     command=led_change, padx=10, pady=10)
+ledbtn = Checkbutton(mywin, text='LED ein-/ausschalten', indicatoron=0, variable=ledstatus,command=led_change, padx=10, pady=10)
 lbl.grid(column=0, row=0, padx=5, pady=5)
 ledbtn.grid(column=0, row=1, padx=5, pady=5)
 
