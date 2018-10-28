@@ -55,10 +55,10 @@ btn3 = Checkbutton(myWin, text='LED ein-/aus', indicatoron=0, variable=ledstatus
 #grid
 lb1.grid(row=0, column=0, padx=5, pady=5)
 btn1.grid(row=1, column=0, padx=5, pady=5)
-lb2.grid(row=0, column=0, padx=5, pady=5)
-btn2.grid(row=1, column=0, padx=5, pady=5)
-lb3.grid(row=0, column=0, padx=5, pady=5)
-btn3.grid(row=1, column=0, padx=5, pady=5)
+lb2.grid(row=0, column=1, padx=5, pady=5)
+btn2.grid(row=1, column=1, padx=5, pady=5)
+lb3.grid(row=0, column=3, padx=5, pady=5)
+btn3.grid(row=1, column=3, padx=5, pady=5)
 
 myWin.mainloop()
 gpio.cleanup()
