@@ -1,7 +1,6 @@
+#!/usr/bin/python3
 from tkinter import *
 
-
-      
 class Anwendung(Frame):#Klasse = Bauplan für Objekte
 
   def __init__(self,master=None):# Methode
@@ -29,19 +28,3 @@ myWin = Tk()# objekt erzeugen
 myWin.wm_title('Titel')
 app = Anwendung(master=myWin)
 app.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
