@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# robot
 from tkinter import *
 import RPi.GPIO as gpio, signal
 gpio.setmode(gpio.BOARD)#Pins 1-40
@@ -40,6 +41,7 @@ pwm4.start(0)                             # Duty:     anfangs 0%
 pwm5 = gpio.PWM(motLenkung_rightPin, 1000)# Frequenz: 1000 Hertz
 pwm5.start(0)                             # Duty:     anfangs 0%
 
+# pwm
 # Reaktion auf Mausklick im Fenster
 def pwmChange1(value):
   pwm1.ChangeDutyCycle(float(value))
@@ -53,7 +55,7 @@ def pwmChange5(value):
   pwm5.ChangeDutyCycle(float(value))
   
 
-# ein/aus
+# pin ein/aus
 # Reaktion auf Mausklick im Fenster
 def pinChange1():
   if pinStatus1.get():
@@ -65,10 +67,10 @@ def pinChange1():
 def pinChange2():
   if pinStatus2.get():
     gpio.output(ledPin2, gpio.HIGH)  
-    lb2.configure(text='high = 3,3 V')
+    lb2.configure(text='high')
   else:
     gpio.output(ledPin2, gpio.LOW)  
-    lb2.configure(text='low = 0 V')
+    lb2.configure(text='low')
   
   
 # Programmende durch Windows-Close-Button
@@ -86,13 +88,12 @@ def do_nothing():
 
 # Benutzeroberfläche
 root = Tk()         # Fenster
-root.wm_title('LED - Motor')# Titel
+root.wm_title('Robot')# Titel
 
-# ein/aus
+# pin ein/aus
 pinStatus1 = IntVar()
 pinStatus2 = IntVar()
-
-# label - ein/aus
+# label - pin ein/aus
 lb1 = Label(root, text='LED - low')
 lb2 = Label(root, text='LED - low')
 btn1 = Checkbutton(root, text='LED ein/aus', indicatoron=0, variable=pinStatus1,command=pinChange1, padx=10, pady=10)
@@ -100,11 +101,10 @@ btn2 = Checkbutton(root, text='LED ein/aus', indicatoron=0, variable=pinStatus2,
 
 # label - pwm
 lb3 = Label(root, text='LED-PWM steuern')
-lb4 = Label(root, text='Antrieb-vor-PWM steuern')
-lb5 = Label(root, text='Antrieb-back-PWM steuern')
-lb6 = Label(root, text='Lenkung-links-PWM steuern')
-lb7 = Label(root, text='Lenkung-rechts-PWM steuern')
-
+lb4 = Label(root, text='Antrieb-vor')
+lb5 = Label(root, text='Antrieb-back')
+lb6 = Label(root, text='Lenkung-li.')
+lb7 = Label(root, text='Lenkung-re.')
 # scale - pwm
 pinscale1 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange1)
 pinscale2 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
@@ -117,7 +117,7 @@ pinscale3.set(0)
 pinscale4.set(0)
 pinscale5.set(0)
 
-# grid - ein/aus
+# grid - pin ein/aus
 # label - 1. Zeile u. 1., 2. Spalte
 lb1.grid(row=0, column=0, padx=5, pady=5)
 lb2.grid(row=0, column=1, padx=5, pady=5)
