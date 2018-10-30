@@ -34,10 +34,10 @@ def pwmChange1(value):
 # ein/aus
 # Reaktion auf Mausklick im Fenster
 def pinChange1():
-  if pinStatus1.get():
-    gpio.output(pin1, gpio.HIGH)  
-    lb1.configure(text='high')
+  if pinStatus1.get()
     pwmChange1
+    gpio.output(pin1, gpio.HIGH)  
+    lb1.configure(text='high') 
   else:
     gpio.output(pin1, gpio.LOW)  
     lb1.configure(text='low')
@@ -93,7 +93,7 @@ lb6 = Label(root, text='PWM 3 steuern')
 
 # scale - pwm
 pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pinChange1)
-pinscale4.set(50)
+pinscale4.set(0)
 #pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
 #pinscale5.set(50)
 #pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
