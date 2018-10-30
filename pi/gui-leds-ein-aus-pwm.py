@@ -92,8 +92,8 @@ lb5 = Label(root, text='PWM 2 steuern')
 lb6 = Label(root, text='PWM 3 steuern')
 
 # scale - pwm
-pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pinChange1)
-pinscale4.set(0)
+pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange1)
+pinscale4.set(50)
 #pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
 #pinscale5.set(50)
 #pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
