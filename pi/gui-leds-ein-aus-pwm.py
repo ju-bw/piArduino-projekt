@@ -7,7 +7,8 @@ gpio.setmode(gpio.BOARD)#Pins 1-40
 gpio.setwarnings(False)  
 
 camera = picamera.PiCamera()
-filename = 'image-{timestamp}.jpg'
+#timestamp = time.strftime("%d-%m-%y_%H-%M-%S")
+#filename = "'img-'timestamp'.jpg'"
 
 ledPin1 = 35
 ledPin2 = 33
@@ -78,7 +79,8 @@ def pinChange2():
 def pinChange3():
   if pinStatus3.get():
     try:
-      camera.capture(filename)
+      pass
+      #camera.capture(filename)
       time.sleep(0.1)
     finally:
       camera.close()
