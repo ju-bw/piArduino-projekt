@@ -131,16 +131,18 @@ lb3.grid(row=2, column=0, padx=5, pady=5)
 # scale - 4. Zeile u. 14 Spalte
 pinscale1.grid(row=3, column=0, padx=5, pady=5)
 
-# label - 5. Zeile u. 1., 2., 3., 4. Spalte
+# label - 5. Zeile u. 1., 2. Spalte
 lb4.grid(row=4, column=0, padx=5, pady=5)
 lb5.grid(row=4, column=1, padx=5, pady=5)
-lb6.grid(row=4, column=2, padx=5, pady=5)
-lb7.grid(row=4, column=3, padx=5, pady=5)
-# scale - 6. Zeile u. 1., 2., 3., 4. Spalte
+# scale - 6. Zeile u. 1., 2. Spalte
 pinscale2.grid(row=5, column=0, padx=5, pady=5)
 pinscale3.grid(row=5, column=1, padx=5, pady=5)
-pinscale4.grid(row=5, column=2, padx=5, pady=5)
-pinscale5.grid(row=5, column=3, padx=5, pady=5)
+# label - 7. Zeile u. 1., 2. Spalte
+lb6.grid(row=6, column=0, padx=5, pady=5)
+lb7.grid(row=6, column=1, padx=5, pady=5)
+# scale - 8. Zeile u. 1., 2. Spalte
+pinscale4.grid(row=7, column=0, padx=5, pady=5)
+pinscale5.grid(row=7, column=1, padx=5, pady=5)
 
 # Ereignisse
 root.protocol("WM_DELETE_WINDOW", win_close) # ordentliches Programmende, wenn Fenster geschlossen wird
