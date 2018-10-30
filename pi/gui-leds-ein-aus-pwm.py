@@ -26,10 +26,10 @@ pwm3.start(50)                 # Duty:     anfangs 50%
 # Reaktion auf Mausklick im Fenster
 #def pwmChange1(value):
   #pwm1.ChangeDutyCycle(float(value))
-def pwmChange2(value):
-  pwm2.ChangeDutyCycle(float(value))
-def pwmChange3(value):
-  pwm3.ChangeDutyCycle(float(value))
+#def pwmChange2(value):
+  #pwm2.ChangeDutyCycle(float(value))
+#def pwmChange3(value):
+  #pwm3.ChangeDutyCycle(float(value))
 
 # ein/aus
 # Reaktion auf Mausklick im Fenster
@@ -94,10 +94,10 @@ lb6 = Label(root, text='PWM 3 steuern')
 # scale - pwm
 pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pinChange1)
 pinscale4.set(50)
-pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
-pinscale5.set(50)
-pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
-pinscale6.set(50)
+#pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
+#pinscale5.set(50)
+#pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
+#pinscale6.set(50)
 
 
 # grid - ein/aus
@@ -117,8 +117,8 @@ lb5.grid(row=2, column=1, padx=5, pady=5)
 lb6.grid(row=2, column=2, padx=5, pady=5)
 # scale - 4. Zeile u. 1., 2., 3. Spalte
 pinscale4.grid(row=3, column=0, padx=5, pady=5)
-pinscale5.grid(row=3, column=1, padx=5, pady=5)
-pinscale6.grid(row=3, column=2, padx=5, pady=5)
+#pinscale5.grid(row=3, column=1, padx=5, pady=5)
+#pinscale6.grid(row=3, column=2, padx=5, pady=5)
 
 # Ereignisse
 root.protocol("WM_DELETE_WINDOW", win_close) # ordentliches Programmende, wenn Fenster geschlossen wird
