@@ -26,16 +26,15 @@ pwm3.start(0)                 # Duty:     anfangs 50%
 # Reaktion auf Mausklick im Fenster
 def pwmChange1(value):
   pwm1.ChangeDutyCycle(float(value))
-#def pwmChange2(value):
-  #pwm2.ChangeDutyCycle(float(value))
-#def pwmChange3(value):
-  #pwm3.ChangeDutyCycle(float(value))
+def pwmChange2(value):
+  pwm2.ChangeDutyCycle(float(value))
+def pwmChange3(value):
+  pwm3.ChangeDutyCycle(float(value))
 
 # ein/aus
 # Reaktion auf Mausklick im Fenster
 def pinChange1():
   if pinStatus1.get():
-    pwmChange1
     gpio.output(pin1, gpio.HIGH)  
     lb1.configure(text='high') 
   else:
@@ -93,11 +92,11 @@ lb6 = Label(root, text='PWM 3 steuern')
 
 # scale - pwm
 pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange1)
-pinscale4.set(50)
-#pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
-#pinscale5.set(50)
-#pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
-#pinscale6.set(50)
+pinscale4.set(0)
+pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
+pinscale5.set(0)
+pinscale6 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange3)
+pinscale6.set(0)
 
 
 # grid - ein/aus
