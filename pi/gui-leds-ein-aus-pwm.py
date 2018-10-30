@@ -6,6 +6,7 @@ import picamera
 gpio.setmode(gpio.BOARD)#Pins 1-40
 gpio.setwarnings(False)  
 
+camera = picamera.PiCamera()
 ledPin1 = 35
 ledPin2 = 33
 ledPWMPin = 37
@@ -74,12 +75,11 @@ def pinChange2():
     lb2.configure(text='low')
 def pinChange3():
   if pinStatus3.get():
-    camera = picamera.PiCamera()
     #camera.capture('image.jpg')
     camera.capture('image.jpg', resize=(1920,1080), use_video_port=True, quality=100)
     camera.close()   
   else:
-    camera.close()  
+    pass # leere Anweisung
   
   
 # Programmende durch Windows-Close-Button
