@@ -2,11 +2,13 @@
 # gui - robot
 from tkinter import *
 import RPi.GPIO as gpio, signal
-import picamera
+import picamera, time
 gpio.setmode(gpio.BOARD)#Pins 1-40
 gpio.setwarnings(False)  
 
 camera = picamera.PiCamera()
+filename = 'image-{timestamp:%S}.jpg'
+
 ledPin1 = 35
 ledPin2 = 33
 ledPWMPin = 37
@@ -76,7 +78,7 @@ def pinChange2():
 def pinChange3():
   if pinStatus3.get():
     #camera.capture('image.jpg')
-    camera.capture('image.jpg', resize=(1920,1080), use_video_port=True, quality=100)
+    camera.capture(filename, resize=(1920,1080), use_video_port=True, quality=100)
     camera.close()   
   else:
     pass # leere Anweisung
