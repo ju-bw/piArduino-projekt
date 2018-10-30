@@ -24,8 +24,8 @@ pwm3 = gpio.PWM(pin3, 1000)    # Frequenz: 1000 Hertz
 pwm3.start(50)                 # Duty:     anfangs 50%
 
 # Reaktion auf Mausklick im Fenster
-def pwmChange1(value):
-  pwm1.ChangeDutyCycle(float(value))
+#def pwmChange1(value):
+  #pwm1.ChangeDutyCycle(float(value))
 def pwmChange2(value):
   pwm2.ChangeDutyCycle(float(value))
 def pwmChange3(value):
@@ -33,13 +33,14 @@ def pwmChange3(value):
 
 # ein/aus
 # Reaktion auf Mausklick im Fenster
-def pinChange1():
+def pinChange1(value):
   if pinStatus1.get():
     gpio.output(pin1, gpio.HIGH)  
     lb1.configure(text='high')
   else:
     gpio.output(pin1, gpio.LOW)  
     lb1.configure(text='low')
+  pwm1.ChangeDutyCycle(float(value))
 def pinChange2():
   if pinStatus2.get():
     gpio.output(pin2, gpio.HIGH)  
@@ -71,7 +72,7 @@ def do_nothing():
 
 # Benutzeroberfläche
 root = Tk()         # Fenster
-root.wm_title('Ein/Aus - PWM')# Titel
+root.wm_title('LED Ein/Aus - PWM')# Titel
 
 # ein/aus
 pinStatus1 = IntVar()
@@ -91,7 +92,7 @@ lb5 = Label(root, text='PWM 2 steuern')
 lb6 = Label(root, text='PWM 3 steuern')
 
 # scale - pwm
-pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange1)
+pinscale4 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pinChange1)
 pinscale4.set(50)
 pinscale5 = Scale(root, from_=0, to=100, orient=HORIZONTAL, command=pwmChange2)
 pinscale5.set(50)
