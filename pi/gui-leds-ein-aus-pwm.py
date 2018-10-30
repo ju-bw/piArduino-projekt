@@ -34,7 +34,7 @@ def pwmChange1(value):
 # ein/aus
 # Reaktion auf Mausklick im Fenster
 def pinChange1():
-  if pinStatus1.get()
+  if pinStatus1.get():
     pwmChange1
     gpio.output(pin1, gpio.HIGH)  
     lb1.configure(text='high') 
