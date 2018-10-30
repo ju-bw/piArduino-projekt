@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-# robot
+# gui - robot
 from tkinter import *
 import RPi.GPIO as gpio, signal
+import picamera
 gpio.setmode(gpio.BOARD)#Pins 1-40
 gpio.setwarnings(False)  
 
@@ -71,6 +72,14 @@ def pinChange2():
   else:
     gpio.output(ledPin2, gpio.LOW)  
     lb2.configure(text='low')
+def pinChange3():
+  if pinStatus3.get():
+    camera = picamera.PiCamera()
+    #camera.capture('image.jpg')
+    camera.capture('image.jpg', resize=(1920,1080), use_video_port=True, quality=100)
+    camera.close()   
+  else:
+    camera.close()  
   
   
 # Programmende durch Windows-Close-Button
@@ -93,11 +102,14 @@ root.wm_title('Robot')# Titel
 # pin ein/aus
 pinStatus1 = IntVar()
 pinStatus2 = IntVar()
+pinStatus3 = IntVar()
 # label - pin ein/aus
 lb1 = Label(root, text='LED - low')
 lb2 = Label(root, text='LED - low')
 btn1 = Checkbutton(root, text='LED ein/aus', indicatoron=0, variable=pinStatus1,command=pinChange1, padx=10, pady=10)
 btn2 = Checkbutton(root, text='LED ein/aus', indicatoron=0, variable=pinStatus2,command=pinChange2, padx=10, pady=10)
+lb_kamera = Label(root, text='Kamera')
+btn_kamera = Checkbutton(root, text='Foto j/n', indicatoron=0, variable=pinStatus3,command=pinChange3, padx=10, pady=10)
 
 # label - pwm
 lb3 = Label(root, text='LED-PWM steuern')
@@ -118,12 +130,14 @@ pinscale4.set(0)
 pinscale5.set(0)
 
 # grid - pin ein/aus
-# label - 1. Zeile u. 1., 2. Spalte
+# label - 1. Zeile u. 1., 2. 3. Spalte
 lb1.grid(row=0, column=0, padx=5, pady=5)
 lb2.grid(row=0, column=1, padx=5, pady=5)
-# button - 2. Zeile u. 1., 2. Spalte 
+lb_kamera.grid(row=0, column=2, padx=5, pady=5)
+# button - 2. Zeile u. 1., 2. 3. Spalte 
 btn1.grid(row=1, column=0, padx=5, pady=5)
 btn2.grid(row=1, column=1, padx=5, pady=5)
+btn_kamera.grid(row=1, column=2, padx=5, pady=5)
 
 # grid - pwm
 # label - 3. Zeile u. 1. Spalte
