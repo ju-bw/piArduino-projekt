@@ -17,11 +17,11 @@ gpio.output(pin3, gpio.LOW)
 
 # pwm
 pwm1 = gpio.PWM(pin1, 1000)    # Frequenz: 1000 Hertz
-pwm1.start(50)                 # Duty:     anfangs 50%
+pwm1.start(0)                 # Duty:     anfangs 50%
 pwm2 = gpio.PWM(pin2, 1000)    # Frequenz: 1000 Hertz
-pwm2.start(50)                 # Duty:     anfangs 50%
+pwm2.start(0)                 # Duty:     anfangs 50%
 pwm3 = gpio.PWM(pin3, 1000)    # Frequenz: 1000 Hertz
-pwm3.start(50)                 # Duty:     anfangs 50%
+pwm3.start(0)                 # Duty:     anfangs 50%
 
 # Reaktion auf Mausklick im Fenster
 def pwmChange1(value):
@@ -34,10 +34,10 @@ def pwmChange1(value):
 # ein/aus
 # Reaktion auf Mausklick im Fenster
 def pinChange1():
-  pwmChange1
   if pinStatus1.get():
     gpio.output(pin1, gpio.HIGH)  
     lb1.configure(text='high')
+    pwmChange1
   else:
     gpio.output(pin1, gpio.LOW)  
     lb1.configure(text='low')
