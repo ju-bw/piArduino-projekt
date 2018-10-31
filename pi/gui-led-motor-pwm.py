@@ -23,20 +23,20 @@ GPIO.setup(lenkungLeft, GPIO.OUT)
 GPIO.setup(lenkungRight, GPIO.OUT) 
 # led
 pwmRed = GPIO.PWM(ledPin1, 500) # (2)
-pwmRed.start(100)
+pwmRed.start(0)
 pwmGreen = GPIO.PWM(ledPin2, 500)
-pwmGreen.start(100)
+pwmGreen.start(0)
 pwmBlue = GPIO.PWM(ledPin3, 500)
-pwmBlue.start(100)
+pwmBlue.start(0)
 # motor
 pwmVor = GPIO.PWM(antriebVor, 500)
-pwmVor.start(100)
+pwmVor.start(0)
 pwmBack = GPIO.PWM(antriebBack, 500)
-pwmBack.start(100)
+pwmBack.start(0)
 pwmLeft = GPIO.PWM(lenkungLeft, 500)
-pwmLeft.start(100)
+pwmLeft.start(0)
 pwmRight = GPIO.PWM(lenkungRight, 500)
-pwmRight.start(100)
+pwmRight.start(0)
 
 class App:
     
@@ -106,7 +106,7 @@ class App:
 root = Tk()  # (8)
 root.wm_title('LED & Motor Control')
 app = App(root)
-root.geometry("400x150+0+0")
+root.geometry("300x300+0+0")
 try:
     root.mainloop()
 finally:  
