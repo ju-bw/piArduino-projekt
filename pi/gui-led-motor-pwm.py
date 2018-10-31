@@ -8,34 +8,34 @@ ledPin1 = 35
 ledPin2 = 33
 ledPin3 = 37
 # motor
-antriebVor = 12
-antriebBack = 16
-lenkungLeft = 18
-lenkungRight = 22
+antriebVorPin = 12
+antriebBackPin = 16
+lenkungLeftPin = 18
+lenkungRightPin = 22
 # led
 GPIO.setup(ledPin1, GPIO.OUT)
 GPIO.setup(ledPin2, GPIO.OUT)
 GPIO.setup(ledPin3, GPIO.OUT)
 # motor
-GPIO.setup(antriebVor, GPIO.OUT) 
-GPIO.setup(antriebBack, GPIO.OUT) 
-GPIO.setup(lenkungLeft, GPIO.OUT) 
-GPIO.setup(lenkungRight, GPIO.OUT) 
+GPIO.setup(antriebVorPin, GPIO.OUT) 
+GPIO.setup(antriebBackPin, GPIO.OUT) 
+GPIO.setup(lenkungLeftPin, GPIO.OUT) 
+GPIO.setup(lenkungRightPin, GPIO.OUT) 
 # led
-pwmRed = GPIO.PWM(ledPin1, 500) # (2)
-pwmRed.start(0)
-pwmGreen = GPIO.PWM(ledPin2, 500)
-pwmGreen.start(0)
-pwmBlue = GPIO.PWM(ledPin3, 500)
-pwmBlue.start(0)
+pwmLed1 = GPIO.PWM(ledPin1, 500) # (2)
+pwmLed1.start(0)
+pwmLed2 = GPIO.PWM(ledPin2, 500)
+pwmLed2.start(0)
+pwmLed3 = GPIO.PWM(ledPin3, 500)
+pwmLed3.start(0)
 # motor
-pwmVor = GPIO.PWM(antriebVor, 500)
+pwmVor = GPIO.PWM(antriebVorPin, 500)
 pwmVor.start(0)
-pwmBack = GPIO.PWM(antriebBack, 500)
+pwmBack = GPIO.PWM(antriebBackPin, 500)
 pwmBack.start(0)
-pwmLeft = GPIO.PWM(lenkungLeft, 500)
+pwmLeft = GPIO.PWM(lenkungLeftPin, 500)
 pwmLeft.start(0)
-pwmRight = GPIO.PWM(lenkungRight, 500)
+pwmRight = GPIO.PWM(lenkungRightPin, 500)
 pwmRight.start(0)
 
 class App:
@@ -44,9 +44,9 @@ class App:
         frame = Frame(master)  #(4)
         frame.pack()
         # led
-        Label(frame, text='Red').grid(row=0, column=0) # (5)
-        Label(frame, text='Green').grid(row=1, column=0)
-        Label(frame, text='Blue').grid(row=2, column=0)
+        Label(frame, text='LED 1').grid(row=0, column=0) # (5)
+        Label(frame, text='LED 2').grid(row=1, column=0)
+        Label(frame, text='LED 3').grid(row=2, column=0)
         # motor
         Label(frame, text='Antrieb vor').grid(row=3, column=0) 
         Label(frame, text='Antrieb back').grid(row=4, column=0)
@@ -54,15 +54,15 @@ class App:
         Label(frame, text='Lenkung rechts').grid(row=6, column=0)
         
         # led
-        scaleRed = Scale(frame, from_=0, to=100,     # (6)
-              orient=HORIZONTAL, command=self.updateRed)
-        scaleRed.grid(row=0, column=1)
-        scaleGreen = Scale(frame, from_=0, to=100,
-              orient=HORIZONTAL, command=self.updateGreen)
-        scaleGreen.grid(row=1, column=1)
-        scaleBlue = Scale(frame, from_=0, to=100,
-              orient=HORIZONTAL, command=self.updateBlue)
-        scaleBlue.grid(row=2, column=1)
+        scaleLed1 = Scale(frame, from_=0, to=100,     # (6)
+              orient=HORIZONTAL, command=self.updateLed1)
+        scaleLed1.grid(row=0, column=1)
+        scaleLed2 = Scale(frame, from_=0, to=100,
+              orient=HORIZONTAL, command=self.updateLed2)
+        scaleLed2.grid(row=1, column=1)
+        scaleLed3 = Scale(frame, from_=0, to=100,
+              orient=HORIZONTAL, command=self.updateLed3)
+        scaleLed3.grid(row=2, column=1)
 
         # motor
         scaleVor = Scale(frame, from_=0, to=100,     
@@ -79,15 +79,15 @@ class App:
         scaleRight.grid(row=6, column=1)
 
     # led
-    def updateRed(self, duty):     # (7)
+    def updateLed1(self, duty):     # (7)
         # Ändert die LED-Helligkeit entsprechend der Reglerstellung
-        pwmRed.ChangeDutyCycle(float(duty))
+        pwmLed1.ChangeDutyCycle(float(duty))
 
-    def updateGreen(self, duty):
-        pwmGreen.ChangeDutyCycle(float(duty))
+    def updateLed2(self, duty):
+        pwmLed2.ChangeDutyCycle(float(duty))
     
-    def updateBlue(self, duty):
-        pwmBlue.ChangeDutyCycle(float(duty))
+    def updateLed3(self, duty):
+        pwmLed3.ChangeDutyCycle(float(duty))
 
     # motor
     def updateVor(self, duty):     # (7)
@@ -104,7 +104,7 @@ class App:
         pwmRight.ChangeDutyCycle(float(duty))
 
 root = Tk()  # (8)
-root.wm_title('LED & Motor Control')
+root.wm_title('LED & Motor PWM Control')
 app = App(root)
 root.geometry("300x300+0+0")
 try:
