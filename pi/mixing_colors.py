@@ -4,19 +4,22 @@ import time
 
 GPIO.setmode(GPIO.BCM)  # (1)
 
+ledPin1 = 35
+ledPin2 = 33
+ledPin3 = 37
 
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
+GPIO.setup(ledPin1, GPIO.OUT)
+GPIO.setup(ledPin2, GPIO.OUT)
+GPIO.setup(ledPin3, GPIO.OUT)
 
 
-pwmRed = GPIO.PWM(18, 500) # (2)
+pwmRed = GPIO.PWM(ledPin1, 500) # (2)
 pwmRed.start(100)
 
-pwmGreen = GPIO.PWM(23, 500)
+pwmGreen = GPIO.PWM(ledPin2, 500)
 pwmGreen.start(100)
 
-pwmBlue = GPIO.PWM(24, 500)
+pwmBlue = GPIO.PWM(ledPin3, 500)
 pwmBlue.start(100)
 
 class App:
