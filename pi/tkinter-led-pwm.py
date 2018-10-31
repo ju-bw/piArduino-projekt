@@ -1,43 +1,64 @@
-#!/usr/bin/python3
-from tkinter import *
-import RPi.GPIO as gpio, signal
-gpio.setmode(gpio.BOARD)
-gpio.setwarnings(False)  
+from tkinter import *       
+import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD)  # (1)
 
-ledPin = 37
-gpio.setup(ledPin, gpio.OUT) 
-pwm = gpio.PWM(ledPin, 1000)    # Frequenz: 1000 Hertz
-pwm.start(50)                   # Duty:     anfangs 50%
+ledPin1 = 35
+ledPin2 = 33
+ledPin3 = 37
 
-# Reaktion auf Mausklick im Fenster
-def pwm_change(value):
-  pwm.ChangeDutyCycle(float(value))
-  
-# Programmende durch Windows-Close-Button
-def win_close():
-  gpio.cleanup()
-  mywin.quit()
+GPIO.setup(ledPin1, GPIO.OUT)
+GPIO.setup(ledPin2, GPIO.OUT)
+GPIO.setup(ledPin3, GPIO.OUT)
 
-# Programmende durch Strg+C im Terminal
-def strg_c(signal, frame):
-  win_close()
 
-# regelmäßiger Aufruf, damit Strg+C funktioniert
-def do_nothing():
-  mywin.after(200, do_nothing)
+pwmRed = GPIO.PWM(ledPin1, 500) # (2)
+pwmRed.start(100)
 
-# Benutzeroberfläche
-mywin = Tk()
-mywin.wm_title('LED-Helligkeit')
-lbl = Label(mywin, text='LED-Helligkeit mit PWM steuern')
-ledscale = Scale(mywin, from_=0, to=100, orient=HORIZONTAL, command=pwm_change)
-ledscale.set(50)
-lbl.grid(column=0, row=0, padx=5, pady=5)
-ledscale.grid(column=0, row=1, padx=5, pady=5)
+pwmGreen = GPIO.PWM(ledPin2, 500)
+pwmGreen.start(100)
 
-# Ereignisse
-mywin.protocol("WM_DELETE_WINDOW", win_close) # ordentliches Programmende, wenn Fenster geschlossen wird
-signal.signal(signal.SIGINT, strg_c) # auf Strg+C in Terminal reagieren
-mywin.after(200, do_nothing)         # damit Strg+C funktioniert
-mywin.mainloop()
+pwmBlue = GPIO.PWM(ledPin3, 500)
+pwmBlue.start(100)
 
+class App:
+    
+    def __init__(self, master): #(3)
+        frame = Frame(master)  #(4)
+        frame.pack()
+        
+        Label(frame, text='Red').grid(row=0, column=0) # (5)
+        Label(frame, text='Green').grid(row=1, column=0)
+        Label(frame, text='Blue').grid(row=2, column=0)
+        
+        scaleRed = Scale(frame, from_=0, to=100,     # (6)
+              orient=HORIZONTAL, command=self.updateRed)
+        scaleRed.grid(row=0, column=1)
+        scaleGreen = Scale(frame, from_=0, to=100,
+              orient=HORIZONTAL, command=self.updateGreen)
+        scaleGreen.grid(row=1, column=1)
+        scaleBlue = Scale(frame, from_=0, to=100,
+              orient=HORIZONTAL, command=self.updateBlue)
+        scaleBlue.grid(row=2, column=1)
+
+    def updateRed(self, duty):     # (7)
+        # change the led brightness to match the slider
+        pwmRed.ChangeDutyCycle(float(duty))
+
+    def updateGreen(self, duty):
+        pwmGreen.ChangeDutyCycle(float(duty))
+    
+    def updateBlue(self, duty):
+        pwmBlue.ChangeDutyCycle(float(duty))
+
+
+root = Tk()  # (8)
+root.wm_title('RGB LED Control')
+app = App(root)
+root.geometry("400x150+0+0")
+try:
+    root.mainloop()
+finally:  
+    print("Cleaning up")
+    GPIO.cleanup()
