@@ -106,7 +106,7 @@ class App:
 root = Tk()  # (8)
 root.wm_title('LED & Motor PWM Control')
 app = App(root)
-root.geometry("300x300+0+0")
+root.geometry("350x300+0+0")# breite x höhe
 try:
     root.mainloop()
 finally:  
