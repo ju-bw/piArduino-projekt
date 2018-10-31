@@ -1,8 +1,8 @@
 from tkinter import *       
 import RPi.GPIO as GPIO
 import time
-
-GPIO.setmode(GPIO.BCM)  # (1)
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD)  # (1)
 
 ledPin1 = 35
 ledPin2 = 33
@@ -56,7 +56,7 @@ class App:
 root = Tk()  # (8)
 root.wm_title('RGB LED Control')
 app = App(root)
-root.geometry("200x150+0+0")
+root.geometry("400x150+0+0")
 try:
     root.mainloop()
 finally:  
