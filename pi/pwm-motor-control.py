@@ -11,11 +11,11 @@ pwm.start(0)                      # (3)
 
 try:         
   while True:                         # (4)
-    tastgrad = int(input('Enter Tastgrad (0 to 100): '))
-    if tastgrad < 0 or tastgrad > 100:
+    duty = int(input('Enter Tastgrad (0 to 100): '))
+    if duty < 0 or duty > 100:
       print('0 to 100')
     else:
-      pwm.ChangetastgradCycle(tastgrad)
+      pwm.ChangeDutyCycle(duty)
         
 finally:  
   print("Cleaning up")
