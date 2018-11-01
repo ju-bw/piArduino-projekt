@@ -25,11 +25,11 @@
 # LED Modul: Landa Tianrui LDTR - HM009 Piranha LED Luminous Module - WHITE 214304505
 #   Input Voltage: 5V
 #  
-from tkinter import *       
+from tkinter import *   
+import time    
 import RPi.GPIO as GPIO
-import time
-GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)  # Positionsnummern: Pins 1-40
+GPIO.setwarnings(False) 
 
 # PIN-Nummer definieren
 # led
