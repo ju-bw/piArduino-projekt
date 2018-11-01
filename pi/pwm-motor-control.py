@@ -6,16 +6,16 @@ GPIO.setwarnings(False)
 controlPin = 35     # (1)
 
 GPIO.setup(controlPin, GPIO.OUT)
-motor_pwm = GPIO.PWM(controlPin, 500)  # (2)
-motor_pwm.start(0)                      # (3)
+pwm = GPIO.PWM(controlPin, 500)  # (2)
+pwm.start(0)                      # (3)
 
 try:         
   while True:                         # (4)
-    duty = input('Enter Duty Cycle (0 to 100): ')
-    if duty < 0 or duty > 100:
+    tastgrad = int(input('Enter Tastgrad (0 to 100): '))
+    if tastgrad < 0 or tastgrad > 100:
       print('0 to 100')
     else:
-      motor_pwm.ChangeDutyCycle(duty)
+      pwm.ChangetastgradCycle(tastgrad)
         
 finally:  
   print("Cleaning up")
