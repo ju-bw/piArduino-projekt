@@ -8,12 +8,14 @@ controlPin = 35
 GPIO.setup(controlPin, GPIO.OUT)
 
 try:         
-    while True:
-        GPIO.output(controlPin, False)  
-        time.sleep(5)                 
-        GPIO.output(controlPin, True) 
-        time.sleep(2)                 
+  while True:
+    GPIO.output(controlPin, False)  
+    print("low - Signal: 5s")
+    time.sleep(5)                 
+    GPIO.output(controlPin, True) 
+    print("high - Signal: 2s")
+    time.sleep(2)                 
         
 finally:  
-    print("Cleaning up")
-    GPIO.cleanup()
+  print("Cleaning up")
+  GPIO.cleanup()
